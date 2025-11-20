@@ -10,24 +10,25 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "AIWattStore - The Future of Smart Energy",
-  description: "AIWattStore combines artificial intelligence with renewable energy to make every watt smarter.",
+  description:
+    "AIWattStore combines artificial intelligence with renewable energy to make every watt smarter.",
   generator: "v0.app",
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className} font-sans antialiased`}
-        onContextMenu={(e) => e.preventDefault()}
-        onCopy={(e) => e.preventDefault()}
-        onCut={(e) => e.preventDefault()}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className={`${inter.className} font-sans antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
         <Analytics />
